@@ -1,0 +1,35 @@
+
+<div>
+	<p>Please click on buy button to buy the book.</p>
+	<div class="row">
+	
+		<table class="table">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Qty</th>
+            <th>Cost</th>
+            <th>Total</th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="item in items">
+            <td><img ng-src="img/{{item.imgUrl}}" style="width:40px;height:40px;"></td>
+            <td>{{item.name}}</td>           
+            <td><input type="number" ng:model="item.quantity" value="1"></td>
+            <td>{{item.price}}</td>
+            <td>{{item.quantity * item.price | currency}}</td>
+            <td>
+                [<a href ng:click="removeItem($index)">X</a>]
+            </td>
+        </tr>
+        <tr>
+        	<td></td>
+            <td></td>
+            <td></td>
+            <td>Total:</td>
+            <td>{{total() | currency}}</td>
+        </tr>
+    </table>
+
+</div>
+</div>

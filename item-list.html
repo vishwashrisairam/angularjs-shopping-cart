@@ -1,0 +1,48 @@
+<div>
+
+<div class="row">
+<div class="col-lg-3">	
+<form role="form">
+
+	  <div class="form-group">
+		<input type="text" class="form-control" ng-model="search" placeholder="Search here..."/>
+	  </div>
+	</form>
+	</div>
+</div>
+
+
+<div class="row">
+	<ul class="list-unstyled">
+		<li class="book" dir-paginate="item in items|filter:search|itemsPerPage:3">
+			<div class="book-details clearfix">
+				<div class="row">
+				<div class="col-lg-3">
+					<img ng-src="img/{{item.imgUrl}}">
+				</div>	
+				<div class="col-lg-9">
+				<h3>{{item.name}}</h3>
+				<p>{{item.price}}</p>
+				<ul class="list-unstyled list-inline">
+					<li><b>Rating:</b> {{item.rating}}</li>
+					<li><b>Binding:</b> {{item.binding}}</li>
+					<li><b>Publisher:</b> {{item.publisher}}</li>
+					<li><b>Released:</b> {{item.releaseDate}}</li>
+				</ul>
+				<p>{{item.details}}</p>
+				
+				<button class="btn btn-info pull-right" ng-click="addToKart(item)">Add to Kart</button>
+			
+			</div>
+			</div>
+			</div>
+		</li>
+		
+	</ul>
+	<div>
+		<dir-pagination-controls template-url="dirPagination.tpl.html">
+		</dir-pagination-controls>
+	</div>	
+</div>
+
+</div>
